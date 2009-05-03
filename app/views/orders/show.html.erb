@@ -1,0 +1,10 @@
+<h1 class="title">Detail objednavky</h1>
+<table cellpadding="3" cellspacing "0">
+	<% OrderItem.find(params[:id]) %>
+	<tr>
+	<td>
+	 	<b>ID</b><br /><%=h @order_item.vypis %>
+	</td>
+	</tr>
+</table>
+ <br /><br />

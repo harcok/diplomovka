@@ -1,0 +1,20 @@
+<h1 class="title">Zoznam pouzivatelov</h1>
+
+<table>
+  <tr>
+    <th>Meno</th>
+  </tr>
+
+<% for user in @users %>
+  <tr>
+    <td><%=h user.meno %></td>
+    <td>  | <%= link_to 'Zobrazit', user %> |</td>
+    <td><%= link_to 'Upravit', edit_user_path(user) %> |</td>
+    <td><%= link_to 'Zmazat', user, :confirm => 'Si si isty?', :method => :delete %> | </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to "Novy pouzivatel", new_user_path %>

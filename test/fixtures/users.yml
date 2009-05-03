@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  meno: MyString
+  hashovane_heslo: MyString
+  sol: MyString
+
+two:
+  meno: MyString
+  hashovane_heslo: MyString
+  sol: MyString

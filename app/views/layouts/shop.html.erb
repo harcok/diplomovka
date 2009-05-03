@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Katalog tovaru</title>
+	<%= stylesheet_link_tag 'style' , :media => "all" %>
+  	<%= javascript_include_tag :defaults %>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">In-line skates  </a></h1>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+		<ul>		
+			<% if not session[:user_id] %>	
+			<li><%= link_to 'Katalog tovaru', :controller => 'shop' %></li>
+			<li><%= link_to 'Prihlasenie', :controller => :admin, :action => 'prihlasenie' %></li>
+			<% end %>
+			<% if session[:user_id] %>
+			<li><%= link_to 'Objednavky', :controller => 'orders' %></li>
+			<li><%= link_to 'Produkty - administracia', :controller => 'products' %></li>
+			<li><%= link_to 'Pouzivatelia', :controller => 'users' %></li>
+			<li><%= link_to 'Odhlasenie', :controller => :admin, :action => 'odhlasenie' %></li>
+			<% end %>
+		</ul>
+	</div>
+	<!-- end #menu -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+			<div class="post-bgtop">
+			<div class="post-bgbtm">
+					<div class="entry">
+				  	<% if flash[:sprava] -%>
+		<div id="sprava"><%= flash[:sprava] %></div>
+		<% end -%>
+  	
+ 		<%= yield :layout %>
+ 		| <%= link_to "Products - administracia" , :controller => "products" %>
+ 		| <%= link_to "Shop" , :controller => "shop" %> |
+					
+				</div>
+			</div>
+			</div>
+			</div>
+			
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+
+				<li>
+		<% if @kosik %>
+			<% hidden_div_if(@kosik.polozky.empty?, :id => "kosik" ) do %>
+			<%= render(:partial => "kosik" , :object => @kosik) %>
+			<% end %>
+		<% end %>
+				</li>
+				<li>
+					<h2>Vitajte</h2>
+					<br />
+						<p>Vitame Vas na strankach spolocnosti Sportuj, s.r.o. Nasa spolocnost za zaobera predajom inline korculi, Nech sa paci, vyberte si z nasho katalogu :)</p>
+					
+				</li>
+				
+
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Copyright (c) 2009 Sportuj, s.r.o. :)</p>
+	</div>
+	<!-- end #footer -->
+</div>
+</body>
+</html>

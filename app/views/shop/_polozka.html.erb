@@ -1,0 +1,9 @@
+<% if polozka == @aktualna_polozka %>
+<tr id="aktualna_polozka">
+<% else %>
+<tr>
+<% end %>
+<td><%= polozka.pocet %>&times;</td>
+<td><%= h(polozka.nazov) %></td>
+<td class="item-price"><%= number_to_currency(polozka.cena, :unit=> "|  Eur ") %></td>
+</tr>

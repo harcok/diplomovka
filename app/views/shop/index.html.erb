@@ -1,0 +1,24 @@
+<h1 class="title">Katalog tovaru</h1>
+<% for product in @products -%>
+<div class="entry">
+	<div id="product-list">
+	<table cellpadding="5" cellspacing "0">
+  	<tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+    <td>
+		<%= image_tag product.obrazok_url, :class => 'list-image' %>
+	</td>
+    <td width="60%">
+		<span class="list-title"><b><%=h product.nazov %></b></span><br />
+		<%=h truncate(product.popis.gsub(/<.*?>/,''), 280) %>
+	</td>
+	<td>
+	 	<b>Cena:</b><br /><%=h product.cena %> Euro
+	 	<% form_remote_tag :url => { :action => :pridaj_do_kosika, :id => product } do %>
+		<%= submit_tag "Pridaj do kosika" %>
+		<% end %>
+	</td>
+  	</tr>
+	</table>
+	</div>
+</div>
+<% end %>

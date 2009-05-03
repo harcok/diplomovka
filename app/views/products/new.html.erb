@@ -1,0 +1,27 @@
+<h1>Novy produkt</h1>
+
+<% form_for(@product) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nazov %><br />
+    <%= f.text_field :nazov %>
+  </p>
+  <p>
+    <%= f.label :popis %><br />
+    <%= f.text_area :popis %>
+  </p>
+  <p>
+    <%= f.label :obrazok_url %><br />
+    <%= f.text_field :obrazok_url %>
+  </p>
+    <p>
+    <%= f.label :cena %><br />
+    <%= f.text_field :cena %>
+  </p>
+  <p>
+    <%= f.submit "Vytvor" %>
+  </p>
+<% end %>
+
+| <%= link_to 'Spat', products_path %>

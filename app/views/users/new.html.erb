@@ -1,0 +1,34 @@
+<div class="obchod-form">
+
+<%= error_messages_for :user %>
+
+<fieldset>
+<legend>Zadajte údaje o používate¾ovi</legend>
+
+<% form_for(@user) do |f| %>
+
+  <p>
+    <label for="user_meno">Meno:</label>
+    <%= f.text_field :meno, :size => 40%>
+  </p>
+  
+  <p>
+    <label for="user_heslo">Heslo:</label>
+    <%= f.password_field :heslo, :size => 40 %>
+  </p>
+  
+  <p>
+    <label for="user_potvrdenie_hesla">Potvrdenie hesla:</label>
+    <%= f.password_field :potvrdenie_hesla, :size => 40 %>
+  </p>
+  
+  <p>
+    <%= f.submit "Pridaj usera" , :class => "submit" %>
+  </p>
+  
+<% end %>
+
+<%= link_to 'Spat', users_path %>
+
+</fieldset>
+</div>

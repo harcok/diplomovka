@@ -1,0 +1,29 @@
+<div id="product-list">
+<h1 class="title">Zoznam produktov</h1>
+
+<table cellpadding="5" cellspacing "0">
+	<% for product in @products %>
+  <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+    <td>
+		<%= image_tag product.obrazok_url, :class => 'list-image' %>
+	</td>
+    <td width="60%">
+		<span class="list-title"><%=h product.nazov %></span><br />
+		<%=h truncate(product.popis.gsub(/<.*?>/,''), 80) %>
+	</td>
+	<td>
+	 	<b>Cena:</b><br /><%=h product.cena %> Euro
+	</td>
+	<td class="list-actions">
+	<%= link_to 'Zobrazit', product %><br/>
+	<%= link_to 'Upravit', edit_product_path(product) %><br/>
+	<%= link_to 'Odstranit', product,
+	:confirm => 'Si si isty?',
+	:method => :delete %>
+	</td>
+   </tr>
+<% end %>
+</table>
+</div>
+<br />
+<%= link_to 'Novy produkt', new_product_path %>

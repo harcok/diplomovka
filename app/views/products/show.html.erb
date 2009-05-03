@@ -1,0 +1,23 @@
+<p>
+  <b>Nazov:</b>
+  <%=h @product.nazov %>
+</p>
+
+<p>
+  <b>Popis:</b>
+  <%=h @product.popis %>
+</p>
+
+<p>
+  <b>Obrazok url:</b>
+  <%=h @product.obrazok_url %>
+</p>
+
+<p>
+  <b>Cena:</b>
+  <%=h @product.cena %>
+</p>
+
+
+| <%= link_to 'Upravit', edit_product_path(@product) %> |
+<%= link_to 'Spat', products_path %> 

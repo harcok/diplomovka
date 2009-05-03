@@ -1,0 +1,32 @@
+<h1 class="title">Objednavky</h1>
+<table cellpadding="3" cellspacing "0">
+	<% for order in @orders %>
+ <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+	<td>
+	 	<b>ID</b><br /><%=h order.id %>
+	</td>
+	<td>
+	 	<b>Meno</b><br /><%=h order.meno %>
+	</td>
+	<td>
+	 	<b>Adresa</b><br /><%=h order.adresa %>
+	</td>
+	<td>
+	 	<b>e-mail</b><br /><%=h order.email %>
+	</td>
+	<td>
+	 	<b>Typ platenia</b><br /><%=h order.typ_platenia %>
+	</td>
+	<td>
+	 	<b>Datum</b><br /><%=h order.created_at %>
+	</td>
+	<td>
+	 	<%= link_to 'Detaily', order %>
+	</td>
+
+	</tr>
+		<% end %>
+
+
+</table>
+ <br /><br />

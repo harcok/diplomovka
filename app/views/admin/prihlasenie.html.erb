@@ -1,0 +1,19 @@
+<div class="obchod-form">
+ <fieldset>
+   <legend>Prosim prihlaste sa</legend>
+	<% form_tag do %>
+	<p>
+	<label for="meno">Meno:</label>
+	<%= text_field_tag :meno, params[:meno] %>
+	</p>
+	
+	<p>
+	<label for="heslo">Heslo:</label>
+	<%= password_field_tag :heslo, params[:heslo] %>
+	</p>
+	<p>
+	<%= submit_tag "Prihlasit" %>
+	</p>
+   <% end %>
+ </fieldset>
+</div>

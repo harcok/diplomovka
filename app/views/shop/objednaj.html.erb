@@ -1,0 +1,29 @@
+<div class="obchod-form">
+<%= error_messages_for 'order' %>
+<fieldset>
+<legend>Prosim zadajte vase udaje:</legend>
+<% form_for :order, :url => { :action => :uloz_objednavku } do |form| %>
+<p>
+<%= label :order, :meno, "Meno:" %>
+<%= form.text_field :meno, :size => 40 %>
+</p>
+<p>
+<%= label :order, :adresa, "Adresa:" %>
+<%= form.text_area :adresa, :rows => 3, :cols => 40 %>
+</p>
+<p>
+<%= label :order, :email, "e-mail:" %>
+<%= form.text_field :email, :size => 40 %>
+</p>
+<p>
+<%= label :order, :typ_platenia, "Zaplatit cez:" %>
+<%=
+form.select :typ_platenia,
+Order::TYPY_PLATENIA,
+:prompt => "Zvol sposob platenia"
+%>
+</p>
+<%= submit_tag "Odoslat objednavku" , :class => "submit" %>
+<% end %>
+</fieldset>
+</div>

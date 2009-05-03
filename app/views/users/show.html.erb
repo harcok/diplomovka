@@ -1,0 +1,18 @@
+<p>
+  <b>Meno:</b>
+  <%=h @user.meno %>
+</p>
+
+<p>
+  <b>Hashovane heslo:</b>
+  <%=h @user.hashovane_heslo %>
+</p>
+
+<p>
+  <b>Sol:</b>
+  <%=h @user.sol %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

@@ -1,0 +1,11 @@
+<h2>Nakupny kosik</h2>
+<table>
+<%= render(:partial => "polozka" , :collection => @kosik.polozky) %>
+<tr class="total-line">
+<td colspan="2">Spolu</td>
+<td class="total-cell"><%= number_to_currency(@kosik.celkova_cena, :unit=> "|  Eur ") %></td>
+</tr>
+</table>
+
+<%= button_to "Objednaj" , :action => :objednaj %>
+<%= button_to "Vyprazdni kosik" , :action => :vyprazdni_kosik %><br />

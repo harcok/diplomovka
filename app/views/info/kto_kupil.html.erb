@@ -1,0 +1,9 @@
+<h1 class="title">Zoznam zakaznikov, ktori si kupili produkt <%= @product.nazov %></h1>
+<br /><br />
+<ul>
+<% for order in @orders -%>
+<li>
+<%= mail_to order.email, order.meno %>
+</li>
+<% end -%>
+</ul>

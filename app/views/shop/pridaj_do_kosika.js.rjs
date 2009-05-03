@@ -1,0 +1,8 @@
+page.replace_html("kosik" , :partial => "kosik" , :object => @kosik)
+
+page[:kosik].visual_effect :blind_down if @kosik.vsetky_polozky == 1 
+
+page[:aktualna_polozka].visual_effect :highlight,
+                                      :startcolor => "#787878" ,
+                                      :endcolor => "#E6E6E6"
+                                      
